@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; //SceneManager
+
 
 public class Score : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class Score : MonoBehaviour
     {
         scoreText = this.GetComponent<Text>();
         scoreText.text = "0";
+    }
+
+    void Update(){
+        if(score<0) SceneManager.LoadScene(2);
     }
 
     public void addScore()
