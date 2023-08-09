@@ -18,4 +18,11 @@ public class Enemy : MonoBehaviour
         if (destroyEvent != null)
             destroyEvent();
     }
+
+    private void OnCollisionEnter(Collision other){
+        if(other.gameObject.tag=="Player"){
+            score.subScore();
+            Destroy(this.gameObject);
+        }
+    }
 }

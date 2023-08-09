@@ -9,4 +9,11 @@ public class Player : MonoBehaviour
     private void Start(){
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
     }
+
+    private void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag=="Supply"){
+            score.addScore();
+            Destroy(other.gameObject);
+        }
+    }
 }
